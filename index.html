@@ -29,6 +29,66 @@
       --gold: #c9a96e;
     }
 
+    /* ── Night Mode ── */
+    body.night-mode {
+      --blush: #2a2025;
+      --cream: #1a1520;
+      --charcoal: #e8e0e4;
+      --warm-white: #221c26;
+    }
+    body.night-mode nav { background: rgba(26,21,32,.92); }
+    body.night-mode nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.3); }
+    body.night-mode nav ul { background: #1a1520; }
+    body.night-mode .dashboard-overlay,
+    body.night-mode .admin-orders-overlay,
+    body.night-mode .settings-overlay { background: rgba(26,21,32,.97); }
+    body.night-mode .dashboard-header,
+    body.night-mode .admin-orders-header,
+    body.night-mode .settings-header { background: #221c26; border-color: #332a38; }
+    body.night-mode .order-card,
+    body.night-mode .admin-order-card,
+    body.night-mode .qr-upload-card,
+    body.night-mode .settings-option-card { background: #221c26; border-color: #332a38; box-shadow: 0 2px 12px rgba(0,0,0,.2); }
+    body.night-mode .auth-card { background: #221c26; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+    body.night-mode .auth-tab { color: #999; }
+    body.night-mode .auth-tab.active { color: var(--rose); }
+    body.night-mode input, body.night-mode textarea, body.night-mode select { background: #2a2530; color: var(--charcoal); border-color: #3a3040; }
+    body.night-mode .order-modal-content { background: #221c26; }
+    body.night-mode footer { background: #13101a; }
+    body.night-mode .gallery-card { background: #221c26; box-shadow: 0 4px 20px rgba(0,0,0,.2); }
+    body.night-mode .section-header p { color: #999; }
+    body.night-mode .process-step { background: #221c26; }
+    body.night-mode .testimonial-card { background: #221c26; }
+    body.night-mode .contact-info, body.night-mode .faq-item { background: #221c26; }
+    body.night-mode .close-btn { background: rgba(255,255,255,.08); color: #ccc; }
+    body.night-mode .settings-section h3 { border-color: #332a38; }
+
+    /* ── Night/Day Toggle ── */
+    .theme-toggle {
+      width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--rose);
+      background: none; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; transition: all .3s;
+      margin-right: .5rem; flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: var(--rose); }
+    .theme-toggle:hover .toggle-icon { filter: brightness(2); }
+
+    /* ── Cherry Blossom Rain ── */
+    .blossom {
+      position: fixed; top: -40px; pointer-events: none; z-index: 9998;
+      width: 18px; height: 18px; border-radius: 50% 50% 50% 0;
+      opacity: 0;
+      animation: blossomFall linear forwards;
+    }
+    .blossom:nth-child(odd) { border-radius: 0 50% 50% 50%; }
+    @keyframes blossomFall {
+      0%   { opacity: 0; transform: translateY(0) rotate(0deg) translateX(0); }
+      10%  { opacity: 1; }
+      50%  { transform: translateY(50vh) rotate(180deg) translateX(40px); }
+      80%  { opacity: .6; }
+      100% { opacity: 0; transform: translateY(105vh) rotate(360deg) translateX(-30px); }
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -48,6 +108,24 @@
       opacity: 0;
       z-index: 9999;
       animation: petalFall 1.2s ease-out forwards;
+    }
+    /* Cursor shapes */
+    .petal.shape-star {
+      border-radius: 0;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    .petal.shape-heart {
+      border-radius: 0;
+      clip-path: polygon(50% 85%, 5% 40%, 5% 20%, 25% 0%, 50% 15%, 75% 0%, 95% 20%, 95% 40%);
+    }
+    .petal.shape-sparkle {
+      border-radius: 50%;
+      box-shadow: 0 0 6px 2px currentColor;
+    }
+    .petal.shape-snowflake {
+      border-radius: 50%;
+      width: 8px; height: 8px;
+      box-shadow: 4px 0 0 currentColor, -4px 0 0 currentColor, 0 4px 0 currentColor, 0 -4px 0 currentColor;
     }
     @keyframes petalFall {
       0%   { opacity: .9; transform: scale(1) rotate(0deg) translateY(0); }
@@ -818,6 +896,62 @@
     }
     .settings-header h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
     .settings-body { max-width: 700px; width: 100%; margin: 0 auto; padding: 2rem 4%; }
+    /* Settings menu buttons */
+    .settings-menu { display: flex; flex-direction: column; gap: .65rem; }
+    .settings-menu-btn {
+      display: flex; align-items: center; gap: 1rem; width: 100%;
+      padding: 1.1rem 1.3rem; border-radius: 16px; border: 2px solid #f0ebe8;
+      background: #fff; cursor: pointer; transition: all .3s;
+      font-family: 'Inter', sans-serif; text-align: left;
+    }
+    .settings-menu-btn:hover { border-color: var(--rose); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+    .settings-menu-btn:active { transform: translateY(0); }
+    .settings-menu-btn .menu-icon {
+      width: 46px; height: 46px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .settings-menu-btn .menu-text { flex: 1; }
+    .settings-menu-btn .menu-text strong {
+      display: block; font-size: .92rem; color: var(--charcoal); font-weight: 700;
+    }
+    .settings-menu-btn .menu-text small {
+      font-size: .75rem; color: #999; margin-top: .15rem; display: block;
+    }
+    .settings-menu-btn .menu-arrow {
+      font-size: 1rem; color: #ccc; transition: transform .3s;
+    }
+    .settings-menu-btn:hover .menu-arrow { color: var(--rose); transform: translateX(3px); }
+    /* Settings popup (inner) */
+    .settings-popup {
+      position: fixed; inset: 0; z-index: 1600;
+      background: rgba(0,0,0,.4); backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .settings-popup.active { display: flex; }
+    .settings-popup-card {
+      background: var(--cream); border-radius: 20px;
+      width: 100%; max-width: 580px; max-height: 85vh;
+      overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      animation: popIn .3s ease;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.92) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .settings-popup-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 1.5rem; border-bottom: 2px solid #f0ebe8;
+      position: sticky; top: 0; background: var(--cream); z-index: 5; border-radius: 20px 20px 0 0;
+    }
+    .settings-popup-header h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0;
+    }
+    .settings-popup-body { padding: 1.5rem; }
+    body.night-mode .settings-menu-btn { background: #221c26; border-color: #332a38; }
+    body.night-mode .settings-popup-card { background: #1a1520; }
+    body.night-mode .settings-popup-header { background: #1a1520; border-color: #332a38; }
     .settings-section { margin-bottom: 2rem; }
     .settings-section h3 {
       font-family: 'Playfair Display', serif; font-size: 1.15rem;
@@ -858,6 +992,84 @@
       font-weight: 600; cursor: pointer; transition: all .3s;
     }
     .qr-save-url-btn:hover { background: var(--deep-sage); transform: translateY(-2px); }
+    /* Settings option cards */
+    .settings-option-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .75rem;
+    }
+    .settings-option-card {
+      background: #fff; border: 2px solid #f0ebe8; border-radius: 14px;
+      padding: 1rem .75rem; text-align: center; cursor: pointer;
+      transition: all .3s; position: relative;
+    }
+    .settings-option-card:hover { border-color: var(--rose); transform: translateY(-2px); }
+    .settings-option-card.active { border-color: var(--rose); background: rgba(212,115,110,.06); }
+    .settings-option-card.active::after {
+      content: '\2713'; position: absolute; top: .4rem; right: .6rem;
+      color: var(--rose); font-weight: 700; font-size: .85rem;
+    }
+    .settings-option-card .opt-preview {
+      width: 48px; height: 48px; border-radius: 12px; margin: 0 auto .6rem;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    }
+    .settings-option-card .opt-label {
+      font-size: .78rem; font-weight: 600; color: var(--charcoal);
+    }
+    .color-swatch-row {
+      display: flex; gap: 4px; justify-content: center; margin-top: .35rem;
+    }
+    .color-swatch-row span {
+      width: 14px; height: 14px; border-radius: 50%; display: inline-block;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .settings-toggle-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #fff; border: 2px solid #f0ebe8; border-radius: 14px;
+      padding: 1rem 1.25rem; transition: all .3s;
+    }
+    .settings-toggle-row:hover { border-color: var(--rose); }
+    .settings-toggle-label { font-size: .9rem; font-weight: 600; }
+    .settings-toggle-label small { display: block; font-weight: 400; color: #999; font-size: .75rem; margin-top: .15rem; }
+    .toggle-switch {
+      position: relative; width: 48px; height: 26px; cursor: pointer;
+    }
+    .toggle-switch input { display: none; }
+    .toggle-slider {
+      position: absolute; inset: 0; background: #ddd; border-radius: 26px;
+      transition: .3s;
+    }
+    .toggle-slider::before {
+      content: ''; position: absolute; width: 20px; height: 20px;
+      border-radius: 50%; background: #fff; left: 3px; top: 3px;
+      transition: .3s; box-shadow: 0 1px 4px rgba(0,0,0,.15);
+    }
+    .toggle-switch input:checked + .toggle-slider { background: var(--rose); }
+    .toggle-switch input:checked + .toggle-slider::before { left: 25px; }
+    .settings-bg-upload {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+    }
+    .settings-bg-card {
+      flex: 1 1 calc(50% - .5rem); min-width: 200px;
+      background: #fff; border: 2px solid #f0ebe8; border-radius: 14px;
+      padding: 1rem; text-align: center; transition: all .3s;
+    }
+    .settings-bg-card:hover { border-color: var(--rose); }
+    .settings-bg-card .bg-label { font-size: .82rem; font-weight: 700; margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .5px; }
+    .settings-bg-card input {
+      width: 100%; padding: .45rem .7rem; border: 2px solid #e8e2de;
+      border-radius: 10px; font-size: .78rem; outline: none; transition: border-color .3s;
+    }
+    .settings-bg-card input:focus { border-color: var(--rose); }
+    .settings-bg-card .bg-preview {
+      width: 100%; height: 60px; border-radius: 8px; margin-top: .5rem;
+      background: #f5f0ed center/cover no-repeat; border: 1px solid #eee;
+    }
+    .settings-save-btn {
+      display: block; width: 100%; padding: .75rem; border-radius: 50px; border: none;
+      background: var(--rose); color: #fff; font-family: 'Inter', sans-serif;
+      font-size: .9rem; font-weight: 600; cursor: pointer; transition: all .3s;
+      margin-top: 1.5rem;
+    }
+    .settings-save-btn:hover { background: var(--deep-rose); transform: translateY(-2px); }
     @media (max-width: 500px) {
       .qr-grid, .qr-upload-grid { grid-template-columns: 1fr; }
     }
@@ -1047,6 +1259,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-account" id="navAccount">
+      <button class="theme-toggle" id="nightToggleBtn" title="Toggle Night Mode"><span class="toggle-icon">🌙</span></button>
       <button class="nav-account-btn" id="navSignInBtn">Sign In</button>
       <div class="nav-user" id="navUser">
         <div class="user-avatar" id="userInitial">U</div>
@@ -1342,6 +1555,10 @@
             <input type="tel" name="customer_phone" id="orderPhone" placeholder="+63 9XX XXX XXXX" />
           </div>
           <div class="form-group">
+            <label>Shipping Address</label>
+            <textarea name="shipping_address" id="orderAddress" placeholder="Street, Barangay, City, Province, ZIP" required style="min-height:70px;"></textarea>
+          </div>
+          <div class="form-group">
             <label>Quantity</label>
             <div class="qty-control">
               <button type="button" id="qtyMinus">&minus;</button>
@@ -1500,8 +1717,44 @@
       <button class="close-btn dashboard-close" id="settingsClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
     <div class="settings-body">
-      <div class="settings-section">
+      <div class="settings-menu">
+        <button class="settings-menu-btn" data-opens="popupQR">
+          <div class="menu-icon" style="background:#e8f5e9;">📱</div>
+          <div class="menu-text"><strong>Payment QR Codes</strong><small>Manage BDO, GCash, Maya, BPI QR images</small></div>
+          <span class="menu-arrow">&#10095;</span>
+        </button>
+        <button class="settings-menu-btn" data-opens="popupTheme">
+          <div class="menu-icon" style="background:#fce4ec;">🎨</div>
+          <div class="menu-text"><strong>Color Theme</strong><small>Change site accent colors & palette</small></div>
+          <span class="menu-arrow">&#10095;</span>
+        </button>
+        <button class="settings-menu-btn" data-opens="popupCursor">
+          <div class="menu-icon" style="background:#fff3e0;">✨</div>
+          <div class="menu-text"><strong>Mouse Trail</strong><small>Petals, stars, hearts, sparkles & more</small></div>
+          <span class="menu-arrow">&#10095;</span>
+        </button>
+        <button class="settings-menu-btn" data-opens="popupNight">
+          <div class="menu-icon" style="background:#e8eaf6;">🌙</div>
+          <div class="menu-text"><strong>Night / Day Mode</strong><small>Toggle dark background theme</small></div>
+          <span class="menu-arrow">&#10095;</span>
+        </button>
+        <button class="settings-menu-btn" data-opens="popupBG">
+          <div class="menu-icon" style="background:#e0f7fa;">🖼️</div>
+          <div class="menu-text"><strong>Section Backgrounds</strong><small>Custom background images per section</small></div>
+          <span class="menu-arrow">&#10095;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Popups -->
+  <div class="settings-popup" id="popupQR">
+    <div class="settings-popup-card">
+      <div class="settings-popup-header">
         <h3>📱 Payment QR Codes</h3>
+        <button class="close-btn popup-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="settings-popup-body">
         <p style="font-size:.85rem;color:#777;margin-bottom:1rem;">Paste the Cloudinary image URL for each QR code. Upload images at <a href="https://console.cloudinary.com" target="_blank" style="color:var(--rose);font-weight:600;">console.cloudinary.com</a> first.</p>
         <div class="qr-upload-grid">
           <div class="qr-upload-card" data-platform="bdo">
@@ -1534,6 +1787,140 @@
           </div>
         </div>
         <p style="font-size:.75rem;color:#999;margin-top:1rem;text-align:center;">Click Save on each card to update. Changes are saved to Firebase instantly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-popup" id="popupTheme">
+    <div class="settings-popup-card">
+      <div class="settings-popup-header">
+        <h3>🎨 Color Theme</h3>
+        <button class="close-btn popup-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="settings-popup-body">
+        <div class="settings-option-grid" id="themeGrid">
+          <div class="settings-option-card active" data-theme="default">
+            <div class="opt-preview" style="background:linear-gradient(135deg,#d4736e,#8a9a7b);"></div>
+            <div class="opt-label">Rose Garden</div>
+            <div class="color-swatch-row"><span style="background:#d4736e"></span><span style="background:#8a9a7b"></span><span style="background:#c9a96e"></span></div>
+          </div>
+          <div class="settings-option-card" data-theme="lavender">
+            <div class="opt-preview" style="background:linear-gradient(135deg,#9b7bbf,#6ba89e);"></div>
+            <div class="opt-label">Lavender</div>
+            <div class="color-swatch-row"><span style="background:#9b7bbf"></span><span style="background:#6ba89e"></span><span style="background:#c4a35a"></span></div>
+          </div>
+          <div class="settings-option-card" data-theme="ocean">
+            <div class="opt-preview" style="background:linear-gradient(135deg,#5b8db8,#6ba89e);"></div>
+            <div class="opt-label">Ocean</div>
+            <div class="color-swatch-row"><span style="background:#5b8db8"></span><span style="background:#6ba89e"></span><span style="background:#d4a96e"></span></div>
+          </div>
+          <div class="settings-option-card" data-theme="sunset">
+            <div class="opt-preview" style="background:linear-gradient(135deg,#e07850,#c9a96e);"></div>
+            <div class="opt-label">Sunset</div>
+            <div class="color-swatch-row"><span style="background:#e07850"></span><span style="background:#c9a96e"></span><span style="background:#9b7b6b"></span></div>
+          </div>
+          <div class="settings-option-card" data-theme="cherry">
+            <div class="opt-preview" style="background:linear-gradient(135deg,#c9506b,#e8a0b0);"></div>
+            <div class="opt-label">Cherry Blossom</div>
+            <div class="color-swatch-row"><span style="background:#c9506b"></span><span style="background:#e8a0b0"></span><span style="background:#8a7b9a"></span></div>
+          </div>
+        </div>
+        <button class="settings-save-btn" id="settingsSaveAll">💾 Save All Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-popup" id="popupCursor">
+    <div class="settings-popup-card">
+      <div class="settings-popup-header">
+        <h3>✨ Mouse Trail</h3>
+        <button class="close-btn popup-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="settings-popup-body">
+        <div class="settings-option-grid" id="cursorGrid">
+          <div class="settings-option-card active" data-cursor="petal">
+            <div class="opt-preview">🌸</div>
+            <div class="opt-label">Petals</div>
+          </div>
+          <div class="settings-option-card" data-cursor="star">
+            <div class="opt-preview">⭐</div>
+            <div class="opt-label">Stars</div>
+          </div>
+          <div class="settings-option-card" data-cursor="heart">
+            <div class="opt-preview">❤️</div>
+            <div class="opt-label">Hearts</div>
+          </div>
+          <div class="settings-option-card" data-cursor="sparkle">
+            <div class="opt-preview">💫</div>
+            <div class="opt-label">Sparkles</div>
+          </div>
+          <div class="settings-option-card" data-cursor="snowflake">
+            <div class="opt-preview">❄️</div>
+            <div class="opt-label">Snowflakes</div>
+          </div>
+          <div class="settings-option-card" data-cursor="none">
+            <div class="opt-preview">🚫</div>
+            <div class="opt-label">None</div>
+          </div>
+        </div>
+        <button class="settings-save-btn settings-save-popup" onclick="document.getElementById('settingsSaveAll').click()">💾 Save All Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-popup" id="popupNight">
+    <div class="settings-popup-card">
+      <div class="settings-popup-header">
+        <h3>🌙 Night / Day Mode</h3>
+        <button class="close-btn popup-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="settings-popup-body">
+        <div class="settings-toggle-row">
+          <div class="settings-toggle-label">
+            Night Mode
+            <small>Swap to a dark background for a cozy feel</small>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="settingsNightToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <button class="settings-save-btn settings-save-popup" onclick="document.getElementById('settingsSaveAll').click()">💾 Save All Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-popup" id="popupBG">
+    <div class="settings-popup-card">
+      <div class="settings-popup-header">
+        <h3>🖼️ Section Backgrounds</h3>
+        <button class="close-btn popup-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="settings-popup-body">
+        <p style="font-size:.85rem;color:#777;margin-bottom:1rem;">Paste image URLs to set custom backgrounds for each section.</p>
+        <div class="settings-bg-upload" id="bgUploadGrid">
+          <div class="settings-bg-card" data-bg-section="hero">
+            <div class="bg-label">Hero</div>
+            <input type="text" class="bg-url-input" placeholder="Paste hero background URL..." />
+            <div class="bg-preview" id="bgPreview_hero"></div>
+          </div>
+          <div class="settings-bg-card" data-bg-section="about">
+            <div class="bg-label">About</div>
+            <input type="text" class="bg-url-input" placeholder="Paste about background URL..." />
+            <div class="bg-preview" id="bgPreview_about"></div>
+          </div>
+          <div class="settings-bg-card" data-bg-section="gallery">
+            <div class="bg-label">Collection</div>
+            <input type="text" class="bg-url-input" placeholder="Paste gallery background URL..." />
+            <div class="bg-preview" id="bgPreview_gallery"></div>
+          </div>
+          <div class="settings-bg-card" data-bg-section="contact">
+            <div class="bg-label">Contact</div>
+            <input type="text" class="bg-url-input" placeholder="Paste contact background URL..." />
+            <div class="bg-preview" id="bgPreview_contact"></div>
+          </div>
+        </div>
+        <button class="settings-save-btn settings-save-popup" onclick="document.getElementById('settingsSaveAll').click()">💾 Save All Settings</button>
       </div>
     </div>
   </div>
@@ -1642,17 +2029,85 @@
     });
     autoSlide = setInterval(nextSlide, 5000);
 
-    /* ── Petal Cursor Trail ── */
-    const petalColors = ['#f4a0a0','#f7c6c7','#d4736e','#e8b4b8','#c9a96e','#8a9a7b'];
+    /* ── Theme & Cursor Engine ── */
+    let currentTheme = 'default';
+    let currentCursor = 'petal';
+    let isNightMode = false;
+
+    const THEMES = {
+      default:  { rose:'#d4736e', deepRose:'#b5524d', sage:'#8a9a7b', deepSage:'#6b7d5e', gold:'#c9a96e', blush:'#f5e6e0', cream:'#fdf8f5', petalColors:['#f4a0a0','#f7c6c7','#d4736e','#e8b4b8','#c9a96e','#8a9a7b'] },
+      lavender: { rose:'#9b7bbf', deepRose:'#7d5ca8', sage:'#6ba89e', deepSage:'#4e8a80', gold:'#c4a35a', blush:'#ede0f5', cream:'#f8f5fd', petalColors:['#c9a0f0','#b088d4','#9b7bbf','#a8c4e0','#6ba89e','#c4a35a'] },
+      ocean:    { rose:'#5b8db8', deepRose:'#446e94', sage:'#6ba89e', deepSage:'#4e8a80', gold:'#d4a96e', blush:'#e0ecf5', cream:'#f5f9fd', petalColors:['#85bce0','#6ba8c8','#5b8db8','#8ecec4','#6ba89e','#d4a96e'] },
+      sunset:   { rose:'#e07850', deepRose:'#c05a35', sage:'#c9a96e', deepSage:'#a88a50', gold:'#9b7b6b', blush:'#f5e6dc', cream:'#fdf8f2', petalColors:['#f0a880','#e8906a','#e07850','#f0c890','#c9a96e','#9b7b6b'] },
+      cherry:   { rose:'#c9506b', deepRose:'#a83a55', sage:'#8a7b9a', deepSage:'#6b5c7d', gold:'#e8a0b0', blush:'#f5e0e8', cream:'#fdf5f8', petalColors:['#e890a8','#d878a0','#c9506b','#e8a0b0','#8a7b9a','#c4a0c4'] }
+    };
+
+    function applyTheme(name) {
+      const t = THEMES[name] || THEMES.default;
+      currentTheme = name;
+      const r = document.documentElement.style;
+      r.setProperty('--rose', t.rose);
+      r.setProperty('--deep-rose', t.deepRose);
+      r.setProperty('--sage', t.sage);
+      r.setProperty('--deep-sage', t.deepSage);
+      r.setProperty('--gold', t.gold);
+      if (!isNightMode) {
+        r.setProperty('--blush', t.blush);
+        r.setProperty('--cream', t.cream);
+      }
+    }
+
+    function setNightMode(on) {
+      isNightMode = on;
+      document.body.classList.toggle('night-mode', on);
+      document.getElementById('nightToggleBtn').querySelector('.toggle-icon').textContent = on ? '☀️' : '🌙';
+      const st = document.getElementById('settingsNightToggle');
+      if (st) st.checked = on;
+      localStorage.setItem('blooms_night', on ? '1' : '0');
+      // Re-apply theme cream/blush if exiting night
+      if (!on) applyTheme(currentTheme);
+      // Cherry blossom rain burst
+      spawnBlossomRain();
+    }
+
+    function spawnBlossomRain() {
+      const colors = ['#ffb7c5','#ff91a4','#fcc2d0','#f8a4b8','#ffd6e0','#e8899a','#f7c6c7','#ffc1cc'];
+      const count = 35;
+      for (let i = 0; i < count; i++) {
+        const b = document.createElement('div');
+        b.classList.add('blossom');
+        b.style.left = (Math.random() * 100) + 'vw';
+        b.style.width = (10 + Math.random() * 14) + 'px';
+        b.style.height = b.style.width;
+        b.style.background = colors[Math.floor(Math.random() * colors.length)];
+        b.style.animationDuration = (2.5 + Math.random() * 2.5) + 's';
+        b.style.animationDelay = (Math.random() * 1.2) + 's';
+        document.body.appendChild(b);
+        b.addEventListener('animationend', () => b.remove());
+      }
+    }
+
+    // Night mode toggle in nav
+    document.getElementById('nightToggleBtn').addEventListener('click', () => {
+      setNightMode(!isNightMode);
+      if (firebaseReady) firebase.database().ref('siteData/theme/nightMode').set(isNightMode);
+    });
+
+    // Petal Cursor Trail (configurable)
+    let petalColors = THEMES.default.petalColors;
     let petalThrottle = 0;
     document.addEventListener('mousemove', (e) => {
+      if (currentCursor === 'none') return;
       if (Date.now() - petalThrottle < 80) return;
       petalThrottle = Date.now();
       const petal = document.createElement('div');
       petal.classList.add('petal');
+      if (currentCursor !== 'petal') petal.classList.add('shape-' + currentCursor);
       petal.style.left = e.clientX - 6 + 'px';
       petal.style.top = e.clientY - 6 + 'px';
-      petal.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
+      const c = petalColors[Math.floor(Math.random() * petalColors.length)];
+      petal.style.background = c;
+      petal.style.color = c;
       petal.style.transform = `rotate(${Math.random()*360}deg)`;
       document.body.appendChild(petal);
       petal.addEventListener('animationend', () => petal.remove());
@@ -1872,6 +2327,52 @@
             }
           });
           console.log('✅ Backgrounds loaded from Firebase');
+        }
+
+        // Apply theme settings
+        if (all.theme) {
+          const t = all.theme;
+          if (t.colorTheme && THEMES[t.colorTheme]) {
+            applyTheme(t.colorTheme);
+            petalColors = THEMES[t.colorTheme].petalColors;
+            // Update settings UI
+            document.querySelectorAll('#themeGrid .settings-option-card').forEach(c => {
+              c.classList.toggle('active', c.dataset.theme === t.colorTheme);
+            });
+          }
+          if (t.cursorStyle) {
+            currentCursor = t.cursorStyle;
+            document.querySelectorAll('#cursorGrid .settings-option-card').forEach(c => {
+              c.classList.toggle('active', c.dataset.cursor === t.cursorStyle);
+            });
+          }
+          if (t.nightMode) {
+            setNightMode(true);
+          }
+          // Load section backgrounds into settings inputs
+          if (t.sectionBackgrounds) {
+            Object.keys(t.sectionBackgrounds).forEach(secId => {
+              const url = t.sectionBackgrounds[secId];
+              const card = document.querySelector(`.settings-bg-card[data-bg-section="${secId}"]`);
+              if (card && url) {
+                card.querySelector('.bg-url-input').value = url;
+                card.querySelector('.bg-preview').style.backgroundImage = `url('${url.replace(/['")\\]/g, '')}')`;
+                // Also apply to the section
+                const sec = document.getElementById(secId);
+                if (sec && isValidUrl(url)) {
+                  const safeUrl = url.replace(/['")\\]/g, '');
+                  sec.style.background = `linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)), url('${safeUrl}') center/cover no-repeat`;
+                  sec.classList.add('has-bg-image');
+                  sec.dataset.bgImage = url;
+                }
+              }
+            });
+          }
+          console.log('✅ Theme settings loaded from Firebase');
+        }
+        // Check localStorage night mode preference (visitor override)
+        else if (localStorage.getItem('blooms_night') === '1') {
+          setNightMode(true);
         }
       }).catch(err => {
         console.error('❌ Failed to load site data:', err.message);
@@ -2103,7 +2604,8 @@
         cards: cards,
         contact: { heading: contactHeading, desc: contactDesc, details: contactDetails },
         backgrounds: backgrounds,
-        qrCodes: qrUrls
+        qrCodes: qrUrls,
+        theme: { colorTheme: currentTheme, cursorStyle: currentCursor, nightMode: isNightMode }
       }).then(() => {
         clearTimeout(timeout);
         saveBtn.textContent = '\u2713 Saved!';
@@ -2134,6 +2636,27 @@
     document.getElementById('settingsClose').addEventListener('click', () => {
       document.getElementById('settingsOverlay').classList.remove('active');
       document.body.style.overflow = '';
+    });
+
+    // Settings menu buttons → open popups
+    document.querySelectorAll('.settings-menu-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const popupId = btn.dataset.opens;
+        const popup = document.getElementById(popupId);
+        if (popup) popup.classList.add('active');
+      });
+    });
+    // Close popup buttons
+    document.querySelectorAll('.popup-close-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.settings-popup').classList.remove('active');
+      });
+    });
+    // Close popup on backdrop click
+    document.querySelectorAll('.settings-popup').forEach(popup => {
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) popup.classList.remove('active');
+      });
     });
 
     /* ── QR Code URL Paste — per platform ── */
@@ -2201,6 +2724,87 @@
               btn.textContent = '\u2714 Save'; btn.disabled = false;
             });
         }
+      });
+    });
+
+    /* ── Settings: Color Theme ── */
+    document.getElementById('themeGrid').addEventListener('click', (e) => {
+      const card = e.target.closest('.settings-option-card');
+      if (!card) return;
+      document.querySelectorAll('#themeGrid .settings-option-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const name = card.dataset.theme;
+      applyTheme(name);
+      petalColors = (THEMES[name] || THEMES.default).petalColors;
+    });
+
+    /* ── Settings: Cursor Style ── */
+    document.getElementById('cursorGrid').addEventListener('click', (e) => {
+      const card = e.target.closest('.settings-option-card');
+      if (!card) return;
+      document.querySelectorAll('#cursorGrid .settings-option-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      currentCursor = card.dataset.cursor;
+    });
+
+    /* ── Settings: Night Toggle ── */
+    document.getElementById('settingsNightToggle').addEventListener('change', (e) => {
+      setNightMode(e.target.checked);
+    });
+
+    /* ── Settings: Background URL previews ── */
+    document.querySelectorAll('.settings-bg-card').forEach(card => {
+      const input = card.querySelector('.bg-url-input');
+      const preview = card.querySelector('.bg-preview');
+      input.addEventListener('input', () => {
+        const url = input.value.trim();
+        if (url && /^https?:\/\/.+/i.test(url)) {
+          preview.style.backgroundImage = `url('${url.replace(/['")\\]/g, '')}')`;
+        } else {
+          preview.style.backgroundImage = '';
+        }
+      });
+    });
+
+    /* ── Settings: Save All ── */
+    document.getElementById('settingsSaveAll').addEventListener('click', () => {
+      if (!firebaseReady) { alert('Firebase not ready.'); return; }
+      const btn = document.getElementById('settingsSaveAll');
+      btn.textContent = 'Saving...';
+      btn.disabled = true;
+
+      // Gather background URLs from settings inputs
+      const settingsBgs = {};
+      document.querySelectorAll('.settings-bg-card').forEach(card => {
+        const section = card.dataset.bgSection;
+        const url = card.querySelector('.bg-url-input').value.trim();
+        if (url && /^https?:\/\/.+/i.test(url)) {
+          settingsBgs[section] = url;
+          // Apply to section immediately
+          const sec = document.getElementById(section);
+          if (sec) {
+            const safeUrl = url.replace(/['")\\]/g, '');
+            sec.style.background = `linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)), url('${safeUrl}') center/cover no-repeat`;
+            sec.classList.add('has-bg-image');
+            sec.dataset.bgImage = url;
+          }
+        }
+      });
+
+      const themeData = {
+        colorTheme: currentTheme,
+        cursorStyle: currentCursor,
+        nightMode: isNightMode,
+        sectionBackgrounds: settingsBgs
+      };
+
+      firebase.database().ref('siteData/theme').set(themeData).then(() => {
+        btn.textContent = '\u2713 Saved!';
+        btn.style.background = '#4caf50';
+        setTimeout(() => { btn.textContent = '\ud83d\udcbe Save All Settings'; btn.style.background = ''; btn.disabled = false; }, 2000);
+      }).catch(err => {
+        alert('Save failed: ' + err.message);
+        btn.textContent = '\ud83d\udcbe Save All Settings'; btn.disabled = false;
       });
     });
 
@@ -2393,12 +2997,14 @@
       const formData = new FormData(orderForm);
       const uName = currentUser.displayName || currentUser.email.split('@')[0];
       const phone = formData.get('customer_phone') || 'Not provided';
+      const address = formData.get('shipping_address') || 'Not provided';
       const orderData = {
         product: currentOrderProduct,
         price: currentOrderPrice,
         customer_name: uName,
         customer_email: currentUser.email,
         customer_phone: phone,
+        shipping_address: address,
         quantity: formData.get('quantity'),
         payment_method: formData.get('payment_method'),
         payment_proof: window._paymentProofUrl || '',
@@ -2430,7 +3036,7 @@
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           from_name: orderData.customer_name,
           from_email: orderData.customer_email,
-          message: `🌸 NEW ORDER\n\nProduct: ${orderData.product}\nPrice: ${orderData.price}\nQuantity: ${orderData.quantity}\nPayment: ${orderData.payment_method}\nPhone: ${orderData.customer_phone}\nNotes: ${orderData.notes}\n${orderData.payment_proof ? 'Payment Proof: ' + orderData.payment_proof + '\n' : ''}\nCustomer: ${orderData.customer_name}\nEmail: ${orderData.customer_email}`
+          message: `🌸 NEW ORDER\n\nProduct: ${orderData.product}\nPrice: ${orderData.price}\nQuantity: ${orderData.quantity}\nPayment: ${orderData.payment_method}\nPhone: ${orderData.customer_phone}\nAddress: ${orderData.shipping_address}\nNotes: ${orderData.notes}\n${orderData.payment_proof ? 'Payment Proof: ' + orderData.payment_proof + '\n' : ''}\nCustomer: ${orderData.customer_name}\nEmail: ${orderData.customer_email}`
         }).catch(err => console.warn('EmailJS notification failed (order still saved):', err));
       }
 
@@ -2694,6 +3300,7 @@
           return '<div class="order-card"><div>'
             + '<div class="order-card-product">' + escapeHtml(o.product) + '</div>'
             + '<div class="order-card-details">Qty: ' + escapeHtml(String(o.quantity)) + ' &middot; ' + escapeHtml(o.payment_method || 'N/A')
+            + '<br>&#128205; ' + escapeHtml(o.shipping_address || 'N/A')
             + (o.notes && o.notes !== 'None' ? '<br>Notes: ' + escapeHtml(o.notes) : '') + '</div>'
             + '</div><div class="order-card-meta">'
             + '<div class="order-card-price">' + escapeHtml(o.price) + '</div>'
@@ -2765,6 +3372,7 @@
             + '</div><div class="admin-order-customer">'
             + '&#128100; ' + escapeHtml(o.customer_name) + ' &middot; ' + escapeHtml(o.customer_email) + '<br>'
             + '&#128241; ' + escapeHtml(o.customer_phone) + ' &middot; &#128179; ' + escapeHtml(o.payment_method || 'N/A') + '<br>'
+            + '&#128205; ' + escapeHtml(o.shipping_address || 'N/A') + '<br>'
             + '&#128221; ' + escapeHtml(o.notes || 'None') + ' &middot; &#128197; ' + dt
             + (o.payment_proof ? '<br><strong>\ud83d\udcf8 Payment Proof:</strong> <a href="' + escapeHtml(o.payment_proof) + '" target="_blank" rel="noopener"><img class="proof-thumb" src="' + escapeHtml(o.payment_proof) + '" alt="Payment proof" /></a>' : '')
             + '</div></div>';
