@@ -155,12 +155,6 @@
     }
     .theme-toggle:hover::after { opacity: 1; }
     .theme-toggle:hover { background: var(--rose); }
-    .theme-toggle:hover .toggle-face { filter: brightness(1.15); }
-    .toggle-face {
-      width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-      transition: all .3s; pointer-events: none; display: none;
-    }
-    .toggle-face-fallback { font-size: 1.1rem; line-height: 1; }
 
     /* ── Cherry Blossom Rain ── */
     .blossom {
@@ -1378,7 +1372,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-account" id="navAccount">
-      <button class="theme-toggle" id="nightToggleBtn" title="Click to Let Your Blossom Bloom"><img class="toggle-face" id="toggleFaceImg" alt="" /><span class="toggle-face-fallback" id="toggleFallback">🌙</span></button>
+      <button class="theme-toggle" id="nightToggleBtn" title="Click to Let Your Blossom Bloom">🌙</button>
       <button class="nav-account-btn" id="navSignInBtn">Sign In</button>
       <div class="nav-user" id="navUser">
         <div class="user-avatar" id="userInitial">U</div>
@@ -2005,33 +1999,6 @@
           </label>
         </div>
 
-        <div class="settings-section" style="margin-top:1.5rem;">
-          <h3>🧑 Toggle Face Images</h3>
-          <p style="font-size:.82rem;color:#888;margin-bottom:1rem;">Upload a face photo for Day and Night. The nav toggle button will show these images.</p>
-          <div class="qr-upload-grid">
-            <div class="qr-upload-card">
-              <div class="qr-upload-label">☀️ Day Face</div>
-              <img id="facePreviewDay" src="" alt="Day face" style="display:none;" />
-              <div class="qr-no-preview" id="facePlaceholderDay">No image yet</div>
-              <label style="display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:50px;background:var(--sage);color:#fff;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .3s;">
-                📷 Upload
-                <input type="file" accept="image/*" id="faceUploadDay" style="display:none;" />
-              </label>
-              <div class="proof-status" id="faceStatusDay"></div>
-            </div>
-            <div class="qr-upload-card">
-              <div class="qr-upload-label">🌙 Night Face</div>
-              <img id="facePreviewNight" src="" alt="Night face" style="display:none;" />
-              <div class="qr-no-preview" id="facePlaceholderNight">No image yet</div>
-              <label style="display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:50px;background:var(--sage);color:#fff;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .3s;">
-                📷 Upload
-                <input type="file" accept="image/*" id="faceUploadNight" style="display:none;" />
-              </label>
-              <div class="proof-status" id="faceStatusNight"></div>
-            </div>
-          </div>
-        </div>
-
         <button class="settings-save-btn settings-save-popup" onclick="document.getElementById('settingsSaveAll').click()">💾 Save All Settings</button>
       </div>
     </div>
@@ -2226,30 +2193,10 @@
       }
     }
 
-    // Face images for toggle button
-    let dayFaceUrl = localStorage.getItem('blooms_dayFace') || '';
-    let nightFaceUrl = localStorage.getItem('blooms_nightFace') || '';
-
-    function updateToggleFace(on) {
-      const img = document.getElementById('toggleFaceImg');
-      const fallback = document.getElementById('toggleFallback');
-      const url = on ? nightFaceUrl : dayFaceUrl;
-      if (url) {
-        img.src = url;
-        img.style.display = '';
-        fallback.style.display = 'none';
-      } else {
-        img.removeAttribute('src');
-        img.style.display = 'none';
-        fallback.style.display = '';
-        fallback.textContent = on ? '🌙' : '☀️';
-      }
-    }
-
     function setNightMode(on) {
       isNightMode = on;
       document.body.classList.toggle('night-mode', on);
-      updateToggleFace(on);
+      document.getElementById('nightToggleBtn').textContent = on ? '☀️' : '🌙';
       const st = document.getElementById('settingsNightToggle');
       if (st) st.checked = on;
       localStorage.setItem('blooms_night', on ? '1' : '0');
@@ -2538,24 +2485,7 @@
           if (t.nightMode) {
             setNightMode(true);
           }
-          // Load face images for toggle button
-          if (t.dayFace) {
-            dayFaceUrl = t.dayFace;
-            localStorage.setItem('blooms_dayFace', dayFaceUrl);
-            const dp = document.getElementById('facePreviewDay');
-            const dph = document.getElementById('facePlaceholderDay');
-            if (dp) { dp.src = dayFaceUrl; dp.style.display = 'block'; }
-            if (dph) dph.style.display = 'none';
-          }
-          if (t.nightFace) {
-            nightFaceUrl = t.nightFace;
-            localStorage.setItem('blooms_nightFace', nightFaceUrl);
-            const np = document.getElementById('facePreviewNight');
-            const nph = document.getElementById('facePlaceholderNight');
-            if (np) { np.src = nightFaceUrl; np.style.display = 'block'; }
-            if (nph) nph.style.display = 'none';
-          }
-          updateToggleFace(isNightMode);
+
           // Load section backgrounds into settings inputs
           if (t.sectionBackgrounds) {
             Object.keys(t.sectionBackgrounds).forEach(secId => {
@@ -2962,69 +2892,6 @@
       setNightMode(e.target.checked);
     });
 
-    /* ── Face Image Upload for Toggle Button ── */
-    function handleFaceUpload(mode) {
-      const input = document.getElementById(mode === 'day' ? 'faceUploadDay' : 'faceUploadNight');
-      const preview = document.getElementById(mode === 'day' ? 'facePreviewDay' : 'facePreviewNight');
-      const placeholder = document.getElementById(mode === 'day' ? 'facePlaceholderDay' : 'facePlaceholderNight');
-      const status = document.getElementById(mode === 'day' ? 'faceStatusDay' : 'faceStatusNight');
-
-      input.addEventListener('change', () => {
-        const file = input.files[0];
-        if (!file) return;
-        if (!file.type.startsWith('image/')) { alert('Please select an image file.'); return; }
-        if (file.size > 5 * 1024 * 1024) { alert('Image must be under 5MB.'); return; }
-
-        // Preview locally
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-          preview.src = ev.target.result;
-          preview.style.display = 'block';
-          placeholder.style.display = 'none';
-        };
-        reader.readAsDataURL(file);
-
-        // Upload to Cloudinary
-        status.textContent = 'Uploading...';
-        status.className = 'proof-status uploading';
-        const fd = new FormData();
-        fd.append('file', file);
-        fd.append('upload_preset', 'ml_default');
-        fd.append('folder', 'blooms-faces');
-        fetch('https://api.cloudinary.com/v1_1/dly1ped5n/image/upload', {
-          method: 'POST', body: fd
-        })
-        .then(r => r.json())
-        .then(data => {
-          if (data.secure_url) {
-            if (mode === 'day') {
-              dayFaceUrl = data.secure_url;
-              localStorage.setItem('blooms_dayFace', dayFaceUrl);
-            } else {
-              nightFaceUrl = data.secure_url;
-              localStorage.setItem('blooms_nightFace', nightFaceUrl);
-            }
-            preview.src = data.secure_url;
-            status.textContent = '\u2713 Uploaded!';
-            status.className = 'proof-status success';
-            updateToggleFace(isNightMode);
-          } else {
-            status.textContent = 'Upload failed.';
-            status.className = 'proof-status error';
-          }
-        })
-        .catch(() => {
-          status.textContent = 'Upload failed. Check connection.';
-          status.className = 'proof-status error';
-        });
-      });
-    }
-    handleFaceUpload('day');
-    handleFaceUpload('night');
-
-    // Initialize toggle face on load
-    updateToggleFace(isNightMode);
-
     /* ── Settings: Background URL previews ── */
     document.querySelectorAll('.settings-bg-card').forEach(card => {
       const input = card.querySelector('.bg-url-input');
@@ -3068,9 +2935,7 @@
         colorTheme: currentTheme,
         cursorStyle: currentCursor,
         nightMode: isNightMode,
-        sectionBackgrounds: settingsBgs,
-        dayFace: dayFaceUrl,
-        nightFace: nightFaceUrl
+        sectionBackgrounds: settingsBgs
       };
 
       firebase.database().ref('siteData/theme').set(themeData).then(() => {
