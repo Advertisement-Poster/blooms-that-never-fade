@@ -54,6 +54,36 @@
     body.night-mode .auth-tab.active { color: var(--rose); }
     body.night-mode input, body.night-mode textarea, body.night-mode select { background: #2a2530; color: var(--charcoal); border-color: #3a3040; }
     body.night-mode .order-modal-content { background: #221c26; }
+    /* Night mode — order modal */
+    body.night-mode .order-modal-body label { color: #ccc; }
+    body.night-mode .order-modal-info h3 { color: var(--charcoal); }
+    body.night-mode .order-user-info { background: #2a2530; }
+    body.night-mode .order-user-info .order-user-details strong { color: var(--charcoal); }
+    body.night-mode .qty-control button { background: #2a2530; border-color: #3a3040; color: var(--charcoal); }
+    body.night-mode .qty-control input { background: #2a2530; border-color: #3a3040; color: var(--charcoal); }
+    body.night-mode .payment-option { background: #2a2530; border-color: #3a3040; color: var(--charcoal); }
+    body.night-mode .payment-option:has(input:checked) {
+      border-color: var(--rose); background: rgba(212,115,110,.2);
+      box-shadow: 0 0 12px rgba(212,115,110,.3), inset 0 0 0 1px var(--rose);
+    }
+    body.night-mode .payment-option:has(input:checked) .payment-label { color: var(--rose); font-weight: 700; }
+    body.night-mode .payment-label { color: var(--charcoal); }
+    body.night-mode .order-modal-actions .btn-outline { background: transparent; color: var(--charcoal); border-color: #555; }
+    body.night-mode .order-modal-actions .btn-outline:hover { background: #3a3040; color: #fff; }
+    body.night-mode .qr-code-section { background: rgba(212,115,110,.08); border-color: var(--rose); }
+    body.night-mode .qr-code-section > p { color: #aaa; }
+    body.night-mode .qr-tab { background: #2a2530; border-color: #3a3040; color: var(--charcoal); }
+    body.night-mode .qr-tab:hover { border-color: var(--rose); color: var(--rose); }
+    body.night-mode .qr-tab.active { background: var(--rose); color: #fff; border-color: var(--rose); }
+    body.night-mode .qr-panel .qr-empty { color: #666; }
+    body.night-mode .proof-upload-section { background: rgba(138,154,123,.08); border-color: var(--sage); }
+    body.night-mode .proof-upload-area { border-color: #3a3040; }
+    body.night-mode .proof-upload-area:hover { border-color: var(--sage); background: rgba(138,154,123,.08); }
+    body.night-mode .proof-upload-hint { color: #888; }
+    body.night-mode .order-modal .btn-close-modal { color: #ccc; }
+    body.night-mode .order-modal-body .form-group label { color: #ccc; }
+    body.night-mode .admin-order-card { background: #221c26; border-color: #332a38; }
+    body.night-mode .admin-status-select { background: #2a2530; border-color: #3a3040; color: var(--charcoal); }
     body.night-mode footer { background: #13101a; }
     body.night-mode .gallery-card { background: #221c26; box-shadow: 0 4px 20px rgba(0,0,0,.2); }
     body.night-mode .section-header p { color: #999; }
@@ -62,6 +92,50 @@
     body.night-mode .contact-info, body.night-mode .faq-item { background: #221c26; }
     body.night-mode .close-btn { background: rgba(255,255,255,.08); color: #ccc; }
     body.night-mode .settings-section h3 { border-color: #332a38; }
+    /* Night mode text color overrides */
+    body.night-mode .about-text p,
+    body.night-mode .process-step p,
+    body.night-mode .contact-info p,
+    body.night-mode .contact-detail { color: #aaa; }
+    body.night-mode .card-body p { color: #aaa; }
+    body.night-mode .card-body h3,
+    body.night-mode .about-text h2,
+    body.night-mode .contact-info h3,
+    body.night-mode .process-step h3 { color: var(--charcoal); }
+    body.night-mode .card-price small { color: #888; }
+    body.night-mode .tag-rose { background: rgba(212,115,110,.15); }
+    body.night-mode .tag-sage { background: rgba(107,125,94,.15); }
+    body.night-mode .tag-gold { background: rgba(201,169,110,.15); }
+    body.night-mode .stat-label { color: #aaa; }
+    body.night-mode .stat-number { color: var(--charcoal); }
+    body.night-mode .testimonial-slide cite { color: #aaa; }
+    body.night-mode .scroll-indicator span { color: #888; }
+    body.night-mode .scroll-mouse { border-color: #666; }
+    body.night-mode .scroll-mouse::after { background: #666; }
+    body.night-mode nav a { color: var(--charcoal); }
+    body.night-mode .nav-account-btn { color: var(--charcoal); border-color: var(--charcoal); }
+    body.night-mode .auth-form label { color: #aaa; }
+    body.night-mode .order-card-details,
+    body.night-mode .admin-order-customer { color: #aaa; }
+    body.night-mode .order-card-date { color: #888; }
+    body.night-mode .order-login-gate p { color: #aaa; }
+    body.night-mode .order-user-info .order-user-details { color: #aaa; }
+    body.night-mode .dashboard-empty { color: #888; }
+    body.night-mode .user-dropdown { background: #221c26; border-color: #332a38; }
+    body.night-mode .user-dropdown-name { color: #888; border-color: #332a38; }
+    body.night-mode .user-dropdown button { color: var(--charcoal); }
+    body.night-mode .user-dropdown button:hover { background: #2a2530; }
+    body.night-mode .contact-form input,
+    body.night-mode .contact-form textarea { background: #2a2530; border-color: #3a3040; color: var(--charcoal); }
+    body.night-mode .settings-menu-btn { color: var(--charcoal); }
+    body.night-mode .settings-menu-btn .menu-btn-desc { color: #999; }
+    body.night-mode .settings-popup-card { background: #221c26; }
+    body.night-mode .settings-toggle-label small { color: #888; }
+    body.night-mode .qr-upload-card .qr-empty,
+    body.night-mode .bg-upload-card p { color: #888; }
+    body.night-mode .status-cancelled { background: #2a2530; color: #888; }
+    body.night-mode footer { color: rgba(255,255,255,.6); }
+    body.night-mode #testimonials { background: linear-gradient(135deg, #221c26, #2a2025); }
 
     /* ── Night/Day Toggle ── */
     .theme-toggle {
@@ -70,8 +144,23 @@
       justify-content: center; font-size: 1.1rem; transition: all .3s;
       margin-right: .5rem; flex-shrink: 0;
     }
+    .theme-toggle { position: relative; }
+    .theme-toggle::after {
+      content: 'Click to Let Your Blossom Bloom';
+      position: absolute; top: 110%; left: 50%; transform: translateX(-50%);
+      background: var(--charcoal); color: var(--cream); font-size: .65rem;
+      padding: .35rem .65rem; border-radius: 8px; white-space: nowrap;
+      pointer-events: none; opacity: 0; transition: opacity .3s;
+      font-family: 'Inter', sans-serif; letter-spacing: .3px;
+    }
+    .theme-toggle:hover::after { opacity: 1; }
     .theme-toggle:hover { background: var(--rose); }
-    .theme-toggle:hover .toggle-icon { filter: brightness(2); }
+    .theme-toggle:hover .toggle-face { filter: brightness(1.15); }
+    .toggle-face {
+      width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+      transition: all .3s; pointer-events: none; display: none;
+    }
+    .toggle-face-fallback { font-size: 1.1rem; line-height: 1; }
 
     /* ── Cherry Blossom Rain ── */
     .blossom {
@@ -470,6 +559,7 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(212,115,110,.35);
     }
+
 
     /* ── Process / How It's Made ── */
     #process { background: var(--warm-white); }
@@ -1192,7 +1282,6 @@
       background: #fff; position: sticky; top: 0; z-index: 10;
     }
     .dashboard-header h2, .admin-orders-header h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
-    .dashboard-close { }
     .dashboard-body, .admin-orders-body { max-width: 900px; width: 100%; margin: 0 auto; padding: 2rem 4%; }
     .dashboard-empty { text-align: center; padding: 4rem 2rem; color: #999; }
     .dashboard-empty span { font-size: 3rem; display: block; margin-bottom: 1rem; }
@@ -1289,7 +1378,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-account" id="navAccount">
-      <button class="theme-toggle" id="nightToggleBtn" title="Toggle Night Mode"><span class="toggle-icon">🌙</span></button>
+      <button class="theme-toggle" id="nightToggleBtn" title="Click to Let Your Blossom Bloom"><img class="toggle-face" id="toggleFaceImg" alt="" /><span class="toggle-face-fallback" id="toggleFallback">🌙</span></button>
       <button class="nav-account-btn" id="navSignInBtn">Sign In</button>
       <div class="nav-user" id="navUser">
         <div class="user-avatar" id="userInitial">U</div>
@@ -1544,9 +1633,9 @@
         </a>
       </div>
       <form class="contact-form" id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Tell us about your dream bouquet..." required></textarea>
+        <input type="text" name="name" placeholder="Your Name" required maxlength="100" />
+        <input type="email" name="email" placeholder="Your Email" required maxlength="200" />
+        <textarea name="message" placeholder="Tell us about your dream bouquet..." required maxlength="1000"></textarea>
         <button type="submit" class="btn btn-primary" style="justify-content:center">Send Message &#10148;</button>
       </form>
     </div>
@@ -1582,11 +1671,11 @@
           </div>
           <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" name="customer_phone" id="orderPhone" placeholder="+63 9XX XXX XXXX" />
+            <input type="tel" name="customer_phone" id="orderPhone" placeholder="+63 9XX XXX XXXX" maxlength="20" />
           </div>
           <div class="form-group">
             <label>Shipping Address</label>
-            <textarea name="shipping_address" id="orderAddress" placeholder="Street, Barangay, City, Province, ZIP" required style="min-height:70px;"></textarea>
+            <textarea name="shipping_address" id="orderAddress" placeholder="Street, Barangay, City, Province, ZIP" required maxlength="500" style="min-height:70px;"></textarea>
           </div>
           <div class="form-group">
             <label>Quantity</label>
@@ -1625,7 +1714,7 @@
           <div class="proof-upload-section" id="proofUploadSection">
             <label>📸 Upload Payment Proof <span>*</span></label>
             <div class="proof-upload-area" id="proofUploadArea">
-              <input type="file" id="proofFileInput" accept="image/*" />
+              <input type="file" id="proofFileInput" accept=".jpg,.jpeg,.png,.gif,.webp" />
               <div class="proof-upload-hint" id="proofHint">
                 <span class="icon">🖼️</span>
                 Tap to upload screenshot of your payment
@@ -1636,7 +1725,7 @@
           </div>
           <div class="form-group">
             <label>Special Instructions (optional)</label>
-            <textarea name="notes" placeholder="Color preference, occasion, message to include..."></textarea></textarea>
+            <textarea name="notes" placeholder="Color preference, occasion, message to include..." maxlength="500"></textarea>
           </div>
           <div class="order-modal-actions">
             <button type="button" class="btn btn-outline" id="orderModalCancelBtn">Cancel</button>
@@ -1785,7 +1874,7 @@
         <button class="close-btn popup-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
       </div>
       <div class="settings-popup-body">
-        <p style="font-size:.85rem;color:#777;margin-bottom:1rem;">Paste the Cloudinary image URL for each QR code. Upload images at <a href="https://console.cloudinary.com" target="_blank" style="color:var(--rose);font-weight:600;">console.cloudinary.com</a> first.</p>
+        <p style="font-size:.85rem;color:#777;margin-bottom:1rem;">Paste the Cloudinary image URL for each QR code. Upload images at <a href="https://console.cloudinary.com" target="_blank" rel="noopener noreferrer" style="color:var(--rose);font-weight:600;">console.cloudinary.com</a> first.</p>
         <div class="qr-upload-grid">
           <div class="qr-upload-card" data-platform="bdo">
             <div class="qr-upload-label">BDO</div>
@@ -1915,6 +2004,34 @@
             <span class="toggle-slider"></span>
           </label>
         </div>
+
+        <div class="settings-section" style="margin-top:1.5rem;">
+          <h3>🧑 Toggle Face Images</h3>
+          <p style="font-size:.82rem;color:#888;margin-bottom:1rem;">Upload a face photo for Day and Night. The nav toggle button will show these images.</p>
+          <div class="qr-upload-grid">
+            <div class="qr-upload-card">
+              <div class="qr-upload-label">☀️ Day Face</div>
+              <img id="facePreviewDay" src="" alt="Day face" style="display:none;" />
+              <div class="qr-no-preview" id="facePlaceholderDay">No image yet</div>
+              <label style="display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:50px;background:var(--sage);color:#fff;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .3s;">
+                📷 Upload
+                <input type="file" accept="image/*" id="faceUploadDay" style="display:none;" />
+              </label>
+              <div class="proof-status" id="faceStatusDay"></div>
+            </div>
+            <div class="qr-upload-card">
+              <div class="qr-upload-label">🌙 Night Face</div>
+              <img id="facePreviewNight" src="" alt="Night face" style="display:none;" />
+              <div class="qr-no-preview" id="facePlaceholderNight">No image yet</div>
+              <label style="display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:50px;background:var(--sage);color:#fff;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .3s;">
+                📷 Upload
+                <input type="file" accept="image/*" id="faceUploadNight" style="display:none;" />
+              </label>
+              <div class="proof-status" id="faceStatusNight"></div>
+            </div>
+          </div>
+        </div>
+
         <button class="settings-save-btn settings-save-popup" onclick="document.getElementById('settingsSaveAll').click()">💾 Save All Settings</button>
       </div>
     </div>
@@ -2109,10 +2226,30 @@
       }
     }
 
+    // Face images for toggle button
+    let dayFaceUrl = localStorage.getItem('blooms_dayFace') || '';
+    let nightFaceUrl = localStorage.getItem('blooms_nightFace') || '';
+
+    function updateToggleFace(on) {
+      const img = document.getElementById('toggleFaceImg');
+      const fallback = document.getElementById('toggleFallback');
+      const url = on ? nightFaceUrl : dayFaceUrl;
+      if (url) {
+        img.src = url;
+        img.style.display = '';
+        fallback.style.display = 'none';
+      } else {
+        img.removeAttribute('src');
+        img.style.display = 'none';
+        fallback.style.display = '';
+        fallback.textContent = on ? '🌙' : '☀️';
+      }
+    }
+
     function setNightMode(on) {
       isNightMode = on;
       document.body.classList.toggle('night-mode', on);
-      document.getElementById('nightToggleBtn').querySelector('.toggle-icon').textContent = on ? '☀️' : '🌙';
+      updateToggleFace(on);
       const st = document.getElementById('settingsNightToggle');
       if (st) st.checked = on;
       localStorage.setItem('blooms_night', on ? '1' : '0');
@@ -2205,7 +2342,7 @@
     const EMAILJS_TEMPLATE_ID = 'template_0eqy86c';  // ← Paste your Template ID
 
     if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
+      try { emailjs.init(EMAILJS_PUBLIC_KEY); } catch(e) {}
     }
 
     /* ── Contact Form — Save to Firebase + Send Email ── */
@@ -2286,7 +2423,7 @@
       // Load ALL site data from one single Firebase path
       firebase.database().ref('siteData').once('value').then(snap => {
         const all = snap.val();
-        if (!all) { console.log('ℹ️ No saved data in Firebase yet'); return; }
+        if (!all) { return; }
 
         // Apply cards
         if (all.cards) {
@@ -2327,7 +2464,6 @@
               }
             }
           });
-          console.log('✅ Cards loaded from Firebase');
         }
 
         // Apply contact info
@@ -2340,7 +2476,6 @@
               if (c.details[i]) s.textContent = c.details[i];
             });
           }
-          console.log('✅ Contact info loaded from Firebase');
         }
 
         // Apply QR codes (multi-platform)
@@ -2361,14 +2496,12 @@
               }
             }
           });
-          console.log('✅ QR codes loaded from Firebase');
         }
         // Backward compat: single qrCode → treat as first platform
         else if (all.qrCode) {
           if (typeof applyQrUrl === 'function') {
             applyQrUrl('bdo', all.qrCode);
           }
-          console.log('✅ Legacy QR code migrated to BDO');
         }
 
         // Apply saved backgrounds
@@ -2383,7 +2516,6 @@
               sec.dataset.bgImage = url;
             }
           });
-          console.log('✅ Backgrounds loaded from Firebase');
         }
 
         // Apply theme settings
@@ -2406,6 +2538,24 @@
           if (t.nightMode) {
             setNightMode(true);
           }
+          // Load face images for toggle button
+          if (t.dayFace) {
+            dayFaceUrl = t.dayFace;
+            localStorage.setItem('blooms_dayFace', dayFaceUrl);
+            const dp = document.getElementById('facePreviewDay');
+            const dph = document.getElementById('facePlaceholderDay');
+            if (dp) { dp.src = dayFaceUrl; dp.style.display = 'block'; }
+            if (dph) dph.style.display = 'none';
+          }
+          if (t.nightFace) {
+            nightFaceUrl = t.nightFace;
+            localStorage.setItem('blooms_nightFace', nightFaceUrl);
+            const np = document.getElementById('facePreviewNight');
+            const nph = document.getElementById('facePlaceholderNight');
+            if (np) { np.src = nightFaceUrl; np.style.display = 'block'; }
+            if (nph) nph.style.display = 'none';
+          }
+          updateToggleFace(isNightMode);
           // Load section backgrounds into settings inputs
           if (t.sectionBackgrounds) {
             Object.keys(t.sectionBackgrounds).forEach(secId => {
@@ -2425,7 +2575,6 @@
               }
             });
           }
-          console.log('✅ Theme settings loaded from Firebase');
         }
         // Check localStorage night mode preference (visitor override)
         else if (localStorage.getItem('blooms_night') === '1') {
@@ -2440,7 +2589,7 @@
     function isValidUrl(url) {
       try {
         const parsed = new URL(url);
-        return ['https:', 'http:'].includes(parsed.protocol);
+        return parsed.protocol === 'https:';
       } catch { return false; }
     }
 
@@ -2456,16 +2605,21 @@
       const card = document.createElement('div');
       card.className = 'gallery-card reveal visible';
       card.innerHTML = `
-        <div class="card-image ${bgClass}" data-image="${data.image || ''}">
-          <span class="emoji-fallback">${emoji}</span>
+        <div class="card-image ${escapeHtml(bgClass)}" data-image="${escapeHtml(data.image || '')}">
+          <span class="emoji-fallback"></span>
         </div>
         <div class="card-body">
-          <h3>${data.name || 'New Product'}</h3>
-          <p>${data.desc || 'Description here'}</p>
-          <span class="card-price">${data.price || '\u20B1100 each'}</span>
-          <span class="card-tag tag-rose">${data.tag || 'New'}</span>
+          <h3></h3>
+          <p></p>
+          <span class="card-price"></span>
+          <span class="card-tag tag-rose"></span>
           <button class="card-order-btn">Order Now &#10148;</button>
         </div>`;
+      card.querySelector('.emoji-fallback').textContent = emoji;
+      card.querySelector('h3').textContent = data.name || 'New Product';
+      card.querySelector('.card-body p').textContent = data.desc || 'Description here';
+      card.querySelector('.card-price').textContent = data.price || '\u20B1100 each';
+      card.querySelector('.card-tag').textContent = data.tag || 'New';
 
       if (data.image) {
         const ci = card.querySelector('.card-image');
@@ -2668,7 +2822,6 @@
         clearTimeout(timeout);
         saveBtn.textContent = '\u2713 Saved!';
         saveBtn.style.background = '#4caf50';
-        console.log('✅ All data saved to Firebase');
         setTimeout(() => {
           saveBtn.textContent = 'Save Changes';
           saveBtn.style.background = '';
@@ -2775,7 +2928,6 @@
             .then(() => {
               btn.textContent = '\u2713 Saved!';
               setTimeout(() => { btn.textContent = '\u2714 Save'; btn.disabled = false; }, 1500);
-              console.log('\u2705 QR codes saved to Firebase');
             })
             .catch(err => {
               alert('Save failed: ' + err.message);
@@ -2809,6 +2961,69 @@
     document.getElementById('settingsNightToggle').addEventListener('change', (e) => {
       setNightMode(e.target.checked);
     });
+
+    /* ── Face Image Upload for Toggle Button ── */
+    function handleFaceUpload(mode) {
+      const input = document.getElementById(mode === 'day' ? 'faceUploadDay' : 'faceUploadNight');
+      const preview = document.getElementById(mode === 'day' ? 'facePreviewDay' : 'facePreviewNight');
+      const placeholder = document.getElementById(mode === 'day' ? 'facePlaceholderDay' : 'facePlaceholderNight');
+      const status = document.getElementById(mode === 'day' ? 'faceStatusDay' : 'faceStatusNight');
+
+      input.addEventListener('change', () => {
+        const file = input.files[0];
+        if (!file) return;
+        if (!file.type.startsWith('image/')) { alert('Please select an image file.'); return; }
+        if (file.size > 5 * 1024 * 1024) { alert('Image must be under 5MB.'); return; }
+
+        // Preview locally
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          preview.src = ev.target.result;
+          preview.style.display = 'block';
+          placeholder.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+
+        // Upload to Cloudinary
+        status.textContent = 'Uploading...';
+        status.className = 'proof-status uploading';
+        const fd = new FormData();
+        fd.append('file', file);
+        fd.append('upload_preset', 'ml_default');
+        fd.append('folder', 'blooms-faces');
+        fetch('https://api.cloudinary.com/v1_1/dly1ped5n/image/upload', {
+          method: 'POST', body: fd
+        })
+        .then(r => r.json())
+        .then(data => {
+          if (data.secure_url) {
+            if (mode === 'day') {
+              dayFaceUrl = data.secure_url;
+              localStorage.setItem('blooms_dayFace', dayFaceUrl);
+            } else {
+              nightFaceUrl = data.secure_url;
+              localStorage.setItem('blooms_nightFace', nightFaceUrl);
+            }
+            preview.src = data.secure_url;
+            status.textContent = '\u2713 Uploaded!';
+            status.className = 'proof-status success';
+            updateToggleFace(isNightMode);
+          } else {
+            status.textContent = 'Upload failed.';
+            status.className = 'proof-status error';
+          }
+        })
+        .catch(() => {
+          status.textContent = 'Upload failed. Check connection.';
+          status.className = 'proof-status error';
+        });
+      });
+    }
+    handleFaceUpload('day');
+    handleFaceUpload('night');
+
+    // Initialize toggle face on load
+    updateToggleFace(isNightMode);
 
     /* ── Settings: Background URL previews ── */
     document.querySelectorAll('.settings-bg-card').forEach(card => {
@@ -2853,7 +3068,9 @@
         colorTheme: currentTheme,
         cursorStyle: currentCursor,
         nightMode: isNightMode,
-        sectionBackgrounds: settingsBgs
+        sectionBackgrounds: settingsBgs,
+        dayFace: dayFaceUrl,
+        nightFace: nightFaceUrl
       };
 
       firebase.database().ref('siteData/theme').set(themeData).then(() => {
@@ -2898,8 +3115,14 @@
     proofInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (!file) return;
-      if (file.size > 10 * 1024 * 1024) {
-        alert('File too large. Max 10MB.');
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+      if (!allowedTypes.includes(file.type)) {
+        alert('Only image files are allowed (JPG, PNG, GIF, WEBP).');
+        e.target.value = '';
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File too large. Max 5MB.');
         e.target.value = '';
         return;
       }
@@ -3083,9 +3306,15 @@
       // Save order to Firebase FIRST (critical)
       const firebasePromises = [];
       if (firebaseReady) {
-        firebasePromises.push(firebase.database().ref('orders').push(orderData));
+        firebasePromises.push(
+          firebase.database().ref('orders').push(orderData)
+            .catch(err => { throw new Error('Order save failed: ' + err.message); })
+        );
         if (phone !== 'Not provided') {
-          firebasePromises.push(firebase.database().ref('users/' + currentUser.uid + '/phone').set(phone));
+          firebasePromises.push(
+            firebase.database().ref('users/' + currentUser.uid + '/phone').set(phone)
+              .catch(() => {/* phone save is non-critical, ignore */})
+          );
         }
       }
 
@@ -3432,7 +3661,7 @@
             + '&#128241; ' + escapeHtml(o.customer_phone) + ' &middot; &#128179; ' + escapeHtml(o.payment_method || 'N/A') + '<br>'
             + '&#128205; ' + escapeHtml(o.shipping_address || 'N/A') + '<br>'
             + '&#128221; ' + escapeHtml(o.notes || 'None') + ' &middot; &#128197; ' + dt
-            + (o.payment_proof ? '<br><strong>\ud83d\udcf8 Payment Proof:</strong> <a href="' + escapeHtml(o.payment_proof) + '" target="_blank" rel="noopener"><img class="proof-thumb" src="' + escapeHtml(o.payment_proof) + '" alt="Payment proof" /></a>' : '')
+            + (o.payment_proof && /^https:\/\//i.test(o.payment_proof) ? '<br><strong>\ud83d\udcf8 Payment Proof:</strong> <a href="' + escapeHtml(o.payment_proof) + '" target="_blank" rel="noopener noreferrer"><img class="proof-thumb" src="' + escapeHtml(o.payment_proof) + '" alt="Payment proof" /></a>' : '')
             + '</div></div>';
         }).join('');
       }).catch(err => {
